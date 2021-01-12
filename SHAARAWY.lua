@@ -149,9 +149,22 @@ bot_id = sudos.token:match("(%d+)")
 token = sudos.token 
 --- start functions ↓
 --------------------------------------------------------------------------------------------------------------
+io.popen("mkdir File_Bot") 
+io.popen("cd File_Bot && rm -rf commands.lua.1") 
+io.popen("cd File_Bot && rm -rf commands.lua.2") 
+io.popen("cd File_Bot && rm -rf commands.lua.3") 
+t = "\27[35m".."\nAll Files Started : \n____________________\n"..'\27[m'
+i = 0
+for v in io.popen('ls File_Bot'):lines() do
+if v:match(".lua$") then
+i = i + 1
+t = t.."\27[39m"..i.."\27[36m".." - \27[10;32m"..v..",\27[m \n"
+end
+end
+print(t)
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
-end
+end 
 sudo_users = {SUDO,480408025,643167431,651284991,307768014,1033028167}   
 function SudoBot(msg)  
 local SHAARAWY = false  
@@ -1004,12 +1017,12 @@ end
 if text == 'تحديث السورس ❃' and SudoBot(msg) then 
 os.execute('rm -rf SHAARAWY.lua')
 os.execute('wget https://raw.githubusercontent.com/SHAARAWYTEAM/SHAARAWY/main/SHAARAWY.lua')
-send(msg.chat_id_, msg.id_,' ❃∫ تم تحديث السورس \n ❃∫ لديك اخر اصدار لسورس بويكا\n ❃∫ الاصدار » { 1.3v}')
+send(msg.chat_id_, msg.id_,' ❃∫ تم تحديث السورس \n ❃∫ لديك اخر اصدار لسورس شعراوي\n ❃∫ الاصدار » { 1.3v}')
 dofile('SHAARAWY.lua')  
 end
 if text == 'الاصدار ❃' and SudoBot(msg) then 
 database:del(bot_id..'Srt:Bot') 
-send(msg.chat_id_, msg.id_,' ❃∫ اصدار سورس بويكا \n ❃∫ الاصدار »{ 1.3v}')
+send(msg.chat_id_, msg.id_,' ❃∫ اصدار سورس شعراوي \n ❃∫ الاصدار »{ 1.3v}')
 end
 if text == 'قناه تحديثات البوت ❃' and SudoBot(msg) then 
 database:del(bot_id..'Srt:Bot') 
@@ -2255,7 +2268,7 @@ return false
 end
 os.execute('rm -rf SHAARAWY.lua')
 os.execute('wget https://raw.githubusercontent.com/SHAARAWYTEAM/SHAARAWY/main/SHAARAWY.lua')
-send(msg.chat_id_, msg.id_,' ❃∫ تم تحديث السورس \n ❃∫ لديك اخر اصدار لسورس بويكا\n ❃∫ الاصدار » { 1.3v}')
+send(msg.chat_id_, msg.id_,' ❃∫ تم تحديث السورس \n ❃∫ لديك اخر اصدار لسورس شعراوي\n ❃∫ الاصدار » { 1.3v}')
 dofile('SHAARAWY.lua')  
 end
 
@@ -3540,7 +3553,7 @@ end,nil)
 end
 end
 if text == 'الملفات' and SudoBot(msg) then
-t = ' ❃∫ ملفات السورس بويكا ↓\n≪━━━━━━𝗦𝗛━━━━━━≫ \n'
+t = ' ❃∫ ملفات السورس شعراوي ↓\n≪━━━━━━𝗦𝗛━━━━━━≫ \n'
 i = 0
 for v in io.popen('ls File_Bot'):lines() do
 if v:match(".lua$") then
@@ -3557,8 +3570,8 @@ if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
 if Get_info then
-local TextS = "\n ❃∫ اهلا بك في متجر ملفات بويكا\n ❃∫ ملفات السورس ↓\n≪━━━━━━𝗦𝗛━━━━━━≫\n\n"
-local TextE = "\n≪━━━━━━𝗦𝗛━━━━━━≫\n ❃∫ علامة تعني { ✓ } ملف مفعل\n ❃∫ علامة تعني { ✘ } ملف معطل\n ❃∫ قناة سورس بويكا ↓\n".." ❃∫ [اضغط هنا لدخول](t.me/XXXXNMX) \n"
+local TextS = "\n ❃∫ اهلا بك في متجر ملفات شعراوي\n ❃∫ ملفات السورس ↓\n≪━━━━━━𝗦𝗛━━━━━━≫\n\n"
+local TextE = "\n≪━━━━━━𝗦𝗛━━━━━━≫\n ❃∫ علامة تعني { ✓ } ملف مفعل\n ❃∫ علامة تعني { ✘ } ملف معطل\n ❃∫ قناة سورس شعراوي ↓\n".." ❃∫ [اضغط هنا لدخول](t.me/XXXXNMX) \n"
 local NumFile = 0
 for name,Info in pairs(res.plugins_) do
 local Check_File_is_Found = io.open("File_Bot/"..name,"r")
@@ -3596,7 +3609,7 @@ os.execute("rm -fr File_Bot/"..file)
 send(msg.chat_id_, msg.id_,t) 
 dofile('SHAARAWY.lua')  
 else
-send(msg.chat_id_, msg.id_," ❃∫ عذرا الملف لايدعم سورس بويكا \n") 
+send(msg.chat_id_, msg.id_," ❃∫ عذرا الملف لايدعم سورس شعراوي \n") 
 end
 return false
 end
@@ -3618,7 +3631,7 @@ chek:close()
 send(msg.chat_id_, msg.id_,t) 
 dofile('SHAARAWY.lua')  
 else
-send(msg.chat_id_, msg.id_," ❃∫ عذرا الملف لايدعم سورس بويكا \n") 
+send(msg.chat_id_, msg.id_," ❃∫ عذرا الملف لايدعم سورس شعراوي \n") 
 end
 return false
 end
@@ -8479,8 +8492,8 @@ end
 return false
 end
 
-if text == ""..(database:get(bot_id..'Name:Bot') or 'بويكا').."" then  
-Namebot = (database:get(bot_id..'Name:Bot') or 'بويكا')
+if text == ""..(database:get(bot_id..'Name:Bot') or 'شعراوي').."" then  
+Namebot = (database:get(bot_id..'Name:Bot') or 'شعراوي')
 local SHAARAWY_Msg = {
 'عمغي 🥺💕.',
 'هاا شتريد كافي ☹️.',
@@ -9071,7 +9084,7 @@ end
 end
 end
 -------------------------------
-if text == ""..(database:get(bot_id..'Name:Bot') or 'بويكا').." غادر" or text == 'غادر' then  
+if text == ""..(database:get(bot_id..'Name:Bot') or 'شعراوي').." غادر" or text == 'غادر' then  
 if Sudo(msg) and not database:get(bot_id..'Left:Bot'..msg.chat_id_)  then 
 tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=msg.chat_id_,user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
 send(msg.chat_id_, msg.id_,'❃∫ تم مغادرة المجموعه') 
@@ -9080,8 +9093,8 @@ end
 return false  
 end
 if text == 'بوت' then
-Namebot = (database:get(bot_id..'Name:Bot') or 'بويكا')
-send(msg.chat_id_, msg.id_,'اسمي الكيوت ['..Namebot..'] ')
+Namebot = (database:get(bot_id..'Name:Bot') or 'شعراوي')
+send(msg.chat_id_, msg.id_,'اسمي الهيبه ['..Namebot..'] ')
 end
 if text == 'الاحصائيات' then
 if Sudo(msg) then 
@@ -11544,7 +11557,7 @@ if (text and text == "تفعيل اوامر التحشيش") then
 send(msg.chat_id_, msg.id_, '  ❃∫ تم تفعيل اوامر التحشيش')
 database:del(bot_id.."Fun_Bots:"..msg.chat_id_)
 end
-local Name_Bot = (database:get(bot_id..'Name:Bot') or 'بويكا')
+local Name_Bot = (database:get(bot_id..'Name:Bot') or 'شعراوي')
 if not database:get(bot_id.."Fun_Bots:"..msg.chat_id_) then
 if text ==  ""..Name_Bot..' شنو رئيك بهاذا' and tonumber(msg.reply_to_message_id_) > 0 then     
 function FunBot(extra, result, success) 
