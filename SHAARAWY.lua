@@ -9291,7 +9291,7 @@ Text = '\n ✫∫ بالتاكيد تم تعطيل الايدي'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تفعيل الايدي بالصوره' and Basic:Constructor(msg) then   
+if text == 'تفعيل الايدي بالصوره' and BasicConstructor(msg) then   
 if database:get(bot_id..'Bot:Id:Photo'..msg.chat_id_)  then
 database:del(bot_id..'Bot:Id:Photo'..msg.chat_id_) 
 Text = '\n ✫∫ تم تفعيل الايدي بالصور' 
@@ -9300,7 +9300,7 @@ Text = '\n ✫∫ بالتاكيد تم تفعيل الايدي بالصوره'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل الايدي بالصوره' and Basic:Constructor(msg) then  
+if text == 'تعطيل الايدي بالصوره' and BasicConstructor(msg) then  
 if not database:get(bot_id..'Bot:Id:Photo'..msg.chat_id_)  then
 database:set(bot_id..'Bot:Id:Photo'..msg.chat_id_,true) 
 Text = '\n ✫∫ تم تعطيل الايدي بالصوره' 
